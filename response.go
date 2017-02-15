@@ -65,6 +65,13 @@ type BrowseNode struct {
 	}
 }
 
+type ItemDimensions struct {
+	Height string
+	Length string
+	Width  string
+	Weight string
+}
+
 // ItemAttributes response group
 type ItemAttributes struct {
 	Binding         string
@@ -86,6 +93,7 @@ type ItemAttributes struct {
 	Warranty        string
 	Size            string
 	UPC             string
+	ItemDimensions  ItemDimensions
 }
 
 // Offer response attribute
