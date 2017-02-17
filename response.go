@@ -37,20 +37,19 @@ type TopSeller struct {
 
 // Item represents a product returned by the API
 type Item struct {
-	ASIN             string
-	URL              string
-	DetailPageURL    string
-	ItemAttributes   ItemAttributes
-	OfferSummary     OfferSummary
-	Offers           Offers
-	SalesRank        int
-	SmallImage       Image
-	MediumImage      Image
-	LargeImage       Image
-	EditorialReviews EditorialReviews
-	BrowseNodes      struct {
-		BrowseNode []BrowseNode
-	}
+	ASIN           string
+	DetailPageURL  string
+	ItemAttributes ItemAttributes
+	//OfferSummary     OfferSummary
+	//Offers           Offers
+	//SalesRank        int
+	//SmallImage  Image
+	MediumImage Image
+	LargeImage  Image
+	//EditorialReviews EditorialReviews
+	//BrowseNodes      struct {
+	//	BrowseNode []BrowseNode
+	//}
 }
 
 // BrowseNode represents a browse node returned by API
@@ -74,26 +73,26 @@ type ItemDimensions struct {
 
 // ItemAttributes response group
 type ItemAttributes struct {
-	Binding         string
-	Brand           string
-	Color           string
-	EAN             string
-	Creator         string
-	Title           string
-	ListPrice       Price
-	Manufacturer    string
-	Publisher       string
-	NumberOfItems   int
-	PackageQuantity int
-	Feature         string
-	Model           string
-	ProductGroup    string
-	ReleaseDate     string
-	Studio          string
-	Warranty        string
-	Size            string
-	UPC             string
-	ItemDimensions  ItemDimensions
+	Binding string
+	Brand   string
+	Color   string
+	EAN     string
+	//Creator         string
+	Title     string
+	ListPrice Price
+	//Manufacturer    string
+	//Publisher       string
+	//NumberOfItems   int
+	//PackageQuantity int
+	//Feature         string
+	Model        string
+	ProductGroup string
+	//ReleaseDate  string
+	//Studio          string
+	//Warranty        string
+	//Size            string
+	//UPC             string
+	ItemDimensions ItemDimensions
 }
 
 // Offer response attribute
@@ -175,7 +174,7 @@ type ItemSearchResponse struct {
 			ItemSearchRequest ItemSearchRequest
 		}
 		Items                []Item `xml:"Item"`
-		TotalResult          int
+		TotalResults         int
 		TotalPages           int
 		MoreSearchResultsUrl string
 	}
