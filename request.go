@@ -5,7 +5,6 @@ import (
 	"errors"
 	"fmt"
 	"net/url"
-	"sort"
 	"strings"
 )
 
@@ -29,6 +28,7 @@ func (request Request) Parameters() map[string]string {
 }
 
 // QueryString returns the query string of the request
+/*
 func (request Request) QueryString() string {
 	var queryString string
 
@@ -49,6 +49,15 @@ func (request Request) QueryString() string {
 
 	// Remove last '&'
 	return strings.TrimRight(queryString, "&")
+}
+*/
+func (request Request) QueryString() string {
+	v := url.Values{}
+	for key := range request.parameters {
+		v.Set(key, request.parameters[key])
+	}
+	//return v.Encode()
+	return strings.Replace(v.Encode(), "+", "%20", -1)
 }
 
 // URL gives the complete URL of the request without the signature
