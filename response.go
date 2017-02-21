@@ -40,8 +40,8 @@ type Item struct {
 	ASIN           string
 	DetailPageURL  string
 	ItemAttributes ItemAttributes
-	//OfferSummary     OfferSummary
-	//Offers           Offers
+	//OfferSummary   OfferSummary
+	Offers Offers
 	//SalesRank        int
 	//SmallImage  Image
 	MediumImage Image
