@@ -35,17 +35,27 @@ type TopSeller struct {
 	Title string
 }
 
+type ImageSet struct {
+	Category    string `xml:"Category,attr"`
+	SwatchImage Image
+	SmallImage  Image
+	MediumImage Image
+	LargeImage  Image
+	HiResImage  Image
+}
+
 // Item represents a product returned by the API
 type Item struct {
 	ASIN           string
 	DetailPageURL  string
+	ImageSets      []ImageSet `xml:"ImageSets>ImageSet"`
+	MediumImage    Image
+	LargeImage     Image
 	ItemAttributes ItemAttributes
+	Offers         Offers
 	//OfferSummary   OfferSummary
-	Offers Offers
 	//SalesRank        int
 	//SmallImage  Image
-	MediumImage Image
-	LargeImage  Image
 	//EditorialReviews EditorialReviews
 	//BrowseNodes      struct {
 	//	BrowseNode []BrowseNode
@@ -73,26 +83,27 @@ type ItemDimensions struct {
 
 // ItemAttributes response group
 type ItemAttributes struct {
-	Binding string
-	Brand   string
-	Color   string
-	EAN     string
+	Binding        string
+	Brand          string
+	Color          string
+	EAN            string
+	Department     string
+	Title          string
+	ListPrice      Price
+	Model          string
+	ProductGroup   string
+	ItemDimensions ItemDimensions
 	//Creator         string
-	Title     string
-	ListPrice Price
 	//Manufacturer    string
 	//Publisher       string
 	//NumberOfItems   int
 	//PackageQuantity int
 	//Feature         string
-	Model        string
-	ProductGroup string
 	//ReleaseDate  string
 	//Studio          string
 	//Warranty        string
 	//Size            string
 	//UPC             string
-	ItemDimensions ItemDimensions
 }
 
 // Offer response attribute
@@ -161,9 +172,9 @@ type ItemLookupResponse struct {
 
 // ItemSearchRequest is the confirmation of a ItemSearch request
 type ItemSearchRequest struct {
-	Keywords      string `xml:"Keywords"`
-	SearchIndex   string `xml:"SearchIndex"`
-	ResponseGroup string `xml:"ResponseGroup"`
+	Keywords      string   `xml:"Keywords"`
+	SearchIndex   string   `xml:"SearchIndex"`
+	ResponseGroup []string `xml:"ResponseGroup"`
 }
 
 type ItemSearchResponse struct {
@@ -173,10 +184,10 @@ type ItemSearchResponse struct {
 			IsValid           bool
 			ItemSearchRequest ItemSearchRequest
 		}
-		Items                []Item `xml:"Item"`
 		TotalResults         int
 		TotalPages           int
 		MoreSearchResultsUrl string
+		Items                []Item `xml:"Item"`
 	}
 }
 
