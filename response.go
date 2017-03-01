@@ -49,11 +49,11 @@ type Item struct {
 	ASIN           string
 	DetailPageURL  string
 	ImageSets      []ImageSet `xml:"ImageSets>ImageSet"`
-	MediumImage    Image
-	LargeImage     Image
 	ItemAttributes ItemAttributes
-	Offers         Offers
-	//OfferSummary   OfferSummary
+	OfferSummary   OfferSummary
+	//MediumImage    Image
+	//LargeImage     Image
+	//Offers         Offers
 	//SalesRank        int
 	//SmallImage  Image
 	//EditorialReviews EditorialReviews
