@@ -57,9 +57,9 @@ type Item struct {
 	//SalesRank        int
 	//SmallImage  Image
 	//EditorialReviews EditorialReviews
-	//BrowseNodes      struct {
-	//	BrowseNode []BrowseNode
-	//}
+	BrowseNodes struct {
+		BrowseNode []BrowseNode
+	}
 }
 
 // BrowseNode represents a browse node returned by API
